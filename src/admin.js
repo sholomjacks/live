@@ -1,12 +1,12 @@
 import React from 'react'
 import valid_users from './validUsers'
-var bcrypt = require('bcryptjs')
-const axios = require('axios')
+var bcrypt =require('bcryptjs')
 
 function pushCustom(usernameparam, passwordparam) {
     valid_users.push({
         username: usernameparam,
         password: passwordparam
+        
     })
 }
 
@@ -60,11 +60,6 @@ class Admin extends React.Component {
     }
     
     render() {
-        const axiosTest = axios.get('padah-backend.herokuapp.com/valid-users')
-            .catch( () => {
-                console.error();
-            })
-        alert(axiosTest)
         if (this.state.addAccount === true) {
             return (
                 <>
