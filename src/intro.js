@@ -1,5 +1,5 @@
 import React from 'react'
-import './radio.css'
+
 function checkbox() {
     var x = document.getElementById("one").checked
     alert("1")
