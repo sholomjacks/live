@@ -3,12 +3,9 @@ import React from 'react'
 import './form.css'
 import './style.css'
 import './submit_button.css'
-import valid_users from './validUsers'
 import './signup-button.css'
 var bcrypt = require('bcryptjs');
 var hash
-var Cryptr = require("cryptr")
-var cryptr = new Cryptr('hello')
 
 export class App extends React.Component {
     state = {
@@ -16,11 +13,10 @@ export class App extends React.Component {
         password: '',
         router: false,
         view: 'password',
+        users: []
     }
 
     componentDidMount() {
-        var encrypted_users = cryptr.encrypt(valid_users)
-        localStorage.setItem("users", encrypted_users)
         let hasht = localStorage.getItem("hash") || ''
         let decide = bcrypt.compareSync("bcrypt-connection-secured", hasht)
         if (decide === true) {
@@ -33,6 +29,11 @@ export class App extends React.Component {
         } else {
             // do nothing
         }
+
+        fetch('/users')
+            .then(res => res.json())
+            .then(users => this.setState({ users }))
+
     }
 
     show = () => {
@@ -60,7 +61,7 @@ export class App extends React.Component {
         length,
         filter(propEq('password', password)),
         filter(propEq('username', username))
-    )(valid_users)
+    )(this.state.users)
 
     render() {
         return (
