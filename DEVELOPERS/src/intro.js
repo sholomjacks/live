@@ -19,7 +19,7 @@ class Intro extends Component {
             const usernamea = await axios.post(`${Url}/username`, { token: localStorage.getItem("token") })
 
             this.setState({
-                welcomeMessage: `Welcome ${usernamea.data.username} to PADAH - Hackers!`,
+                welcomeMessage: `Welcome ${usernamea.data.username} to PADAH - DEVELOPERS!`,
                 logged_in: "local storage yes",
                 validating: false
             })
