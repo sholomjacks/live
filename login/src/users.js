@@ -120,6 +120,7 @@ class Users extends React.Component {
                     <a href="/home">Home</a>
                     <a href="/contact">Contact</a>
                 </div>
+
                 <img alt="Hamburger Menu" id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
 
                 <span id="main">
@@ -127,7 +128,7 @@ class Users extends React.Component {
                         <h1 id="al1">{this.state.welcomeMessage}</h1>
                         {/*<button id="mystyledbutton" onClick={show}>Show</button>*/}
                         <p id="lol"></p>
-                        <a id="hackerbutton" href="https://hackers.padah.dev">HACKER</a>
+                        <a id="hackerbutton" href={`https://hackers.padah.dev/?token=${localStorage.getItem("token")}`}>HACKER</a>
                         <a id="devbutton" href={`https://developers.padah.dev/?token=${localStorage.getItem("token")}`}>DEVELOPER</a>
                     </center>
                 </span> </>: <div class="center">
