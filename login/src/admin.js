@@ -17,8 +17,8 @@ ______|__|_______ FROM ####          ####   #######
 
 import React from 'react'
 import './style.css'
-const axios = require('axios')
 import url from './url.js'
+const axios = require('axios')
 
 function go() {
     window.location = "/cmds"

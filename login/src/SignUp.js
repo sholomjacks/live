@@ -1,8 +1,9 @@
 import React from 'react';
 import './style.css'
+import url from './url.js'
 const base64 = require('base-64')
 const axios = require('axios');
-import url from './url.js'
+
 
 class SignUp extends React.Component {
 

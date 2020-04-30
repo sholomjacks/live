@@ -1,6 +1,6 @@
 import React from 'react'
-const axios = require('axios')
 import url from './url.js'
+const axios = require('axios')
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
