@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import {Growl} from 'primereact/growl';
-import {Button} from 'primereact/button';
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -17,11 +15,6 @@ class Intro extends Component {
         welcomeMessage: null,
         logged_in: false,
         validating: true
-    }
-
-    constructor() {
-        super();
-        this.showSuccess = this.showSuccess.bind(this);
     }
 
     componentDidMount = async () => {
@@ -58,14 +51,9 @@ class Intro extends Component {
         }
     }
 
-    showSuccess() {
-        this.growl.show({severity: 'success', summary: 'Success Message', detail: 'Order submitted'});
-    }
-
     render() {
         return (
             <>
-                <Growl ref={(el) => this.growl = el} />
                 {this.state.validating ?
                     <div class="center">
                         <div class="loader"></div>
@@ -78,11 +66,10 @@ class Intro extends Component {
                         this.state.welcomeMessage && this.state.logged_in ?
                             <center>
                                 <h1>{this.state.welcomeMessage}</h1>
-                                <Button onClick={this.showSuccess} label="Success" className="p-button-success" />                            </center>
+                            </center>
                             : this.state.logged_in === "local storage yes" ? 
                             <center>
                                 <h1>{this.state.welcomeMessage}</h1>
-                                <Button onClick={this.showSuccess} label="Success" className="p-button-success" />
                             </center>
                         : null
                         }
