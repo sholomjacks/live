@@ -1,24 +1,27 @@
 import React from 'react'
+import { Checkbox } from "primereact/checkbox";
 import './style.css'
 import './loader.css'
 import './checkbox.css'
 
 function checkbox() {
-    var x = document.getElementById("one").checked
+    var x = document.getElementById("show-again")
+    console.log(x)
     if (x === true) {
         localStorage.setItem("intro", "no")
     } else {
         // do nothing
     }
 
-    window.location = '/home'
+    //window.location = '/home'
 }
 
 class top extends React.Component {
 
     state = {
         href: '',
-        render: false
+        render: false,
+        checked: false
     }
 
     componentDidMount() {
@@ -38,11 +41,9 @@ class top extends React.Component {
             <br /> Now you will be directed to your Home Page.
             <br /></h2>
 
-                <label class="container">One
-                    <input type="checkbox" checked="checked" />
-                    <span class="checkmark"></span>
-                </label>
+                <Checkbox id="show-again" tooltip="Don't show again" onChange={e => this.setState({checked: e.checked})} checked={this.state.checked}></Checkbox>
 
+                <br />
                 <br />
 
                 <section className="button">

@@ -1,7 +1,11 @@
 import React from 'react'
 import './background.css'
 import './style.css'
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 import './loader.css'
+import { Growl } from 'primereact/growl'
 import url from './url'
 const axios = require('axios')
 
@@ -11,6 +15,16 @@ export class App extends React.Component {
         password: '',
         view: 'password',
         render: false
+    }
+
+    constructor() {
+        super();
+        this.showSuccess = this.showSuccess.bind(this);
+    }
+
+    showSuccess() {
+        //this.growl.show({ severity: 'success', summary: 'Logged In', detail: 'You have succesfully logged in to your PADAH account!' })
+        alert("You have succesfully logged in to your PADAH account!")
     }
 
     componentDidMount = async () => {
@@ -30,8 +44,9 @@ export class App extends React.Component {
         const token = await axios.post(url, { username: username, password: password }).catch(err => alert(err))
         if (token.data.message !== "INVALID LOGIN") {
             localStorage.setItem("token", token.data.message)
-            alert("You have succesfully logged in to your PADAH account!")
+            this.showSuccess()
             window.location = '/intro'
+            
         } else {
             alert("Invalid login, you may not enter the secret world of PADAH...")
         }
@@ -40,6 +55,7 @@ export class App extends React.Component {
     render() {
         return (
             <>
+                <Growl ref={(el) => this.growl = el} />
                 {this.state.render ? <div class="skewed-bg">
                     <div class="content">
                         <div>
