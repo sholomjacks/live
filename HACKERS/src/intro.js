@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import { Button } from 'primereact/button';
 import './loader.css'
+import './background.css'
 import Url from './url.js'
 const axios = require('axios')
 
@@ -18,7 +20,7 @@ class Intro extends Component {
     }
 
     componentDidMount = async () => {
-        if ( localStorage.getItem("logged_in") !== "false" && localStorage.getItem("token")) {
+        if (localStorage.getItem("logged_in") !== "false" && localStorage.getItem("token")) {
             const usernamea = await axios.post(`${Url}/username`, { token: localStorage.getItem("token") })
 
             this.setState({
@@ -26,7 +28,7 @@ class Intro extends Component {
                 logged_in: "local storage yes",
                 validating: false
             })
-            
+
         } else {
             this.setState({ validating: true })
             const token = await axios.post(`${Url}/beginner-token`, body).catch(err => console.warn("IDK", err))
@@ -51,29 +53,36 @@ class Intro extends Component {
         }
     }
 
+    getStarted() {
+        window.location = "/getstarted"
+    }
+
     render() {
-        return (
-            <>
-                {this.state.validating ?
-                    <div class="center">
+        return (<>
+            {
+                this.state.validating ?
+
+                    <div class="center" >
                         <div class="loader"></div>
                     </div>
                     : !this.state.logged_in ?
                         <>
                             NOT LOGGED IN
                         </>
-                        :
-                        this.state.welcomeMessage && this.state.logged_in ?
-                            <center>
-                                <h1>{this.state.welcomeMessage}</h1>
+                        : this.state.welcomeMessage && this.state.logged_in ?
+                            <center style={{ backgroundColor: "lightgreen" }} >
+                                <div className="typewriter">
+                                    <h1>{this.state.welcomeMessage}</h1>
+                                </div>
+                                <Button label="Get Started" className="p-button-success" onClick={this.getStarted} />
                             </center>
-                            : this.state.logged_in === "local storage yes" ? 
-                            <center>
-                                <h1>{this.state.welcomeMessage}</h1>
-                            </center>
-                        : null
-                        }
-            </>
+                            : this.state.logged_in === "local storage yes" ?
+                                <center style={{ backgroundColor: "lightgreen" }} >
+                                    <h1>{this.state.welcomeMessage}</h1>
+                                </center>
+                                : null
+            }
+        </>
         );
     }
 }

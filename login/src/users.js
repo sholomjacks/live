@@ -112,6 +112,7 @@ class Users extends React.Component {
                 { this.state.welcomeMessage ? <><div id="mySidenav" class="sidenav">
                     {// eslint-disable-next-line
                         <span id="cursur" href="javascript:void(0)" class="closebtn" onClick={closeNav}>&times;</span>}
+                    <img style={{ borderRadius: "50%", marginLeft: "50px" ,display: "block" }} width="110px" src="https://hackernoon.com/hn-images/1*TYAzzTJ60x-qg5N81ElU9A.png" alt="profile" />
                     {// eslint-disable-next-line
                         <a id="cursur" onClick={logout}>Logout</a>}
                     <a href="/admin">Admin Commands</a>

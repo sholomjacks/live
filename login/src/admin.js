@@ -69,13 +69,13 @@ class Admin extends React.Component {
         const response = await axios.post(
             `${url}/api/add-account`,
             {
-                "username": this.state.usernamea,
-                "password": this.state.passworda
+                username: this.state.usernamea,
+                password: this.state.passworda
             },
             { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
         )
 
-        response.data.message ? alert("Account added successfully") : alert("You are not logged in to a PADAH account")
+        response.data.message === "exists" ? alert("Account already exists") : response.data.message ? alert("Account added successfully") : alert("You are not logged in to a PADAH account")
     }
 
     show = () => {

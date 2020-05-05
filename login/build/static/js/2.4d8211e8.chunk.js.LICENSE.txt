@@ -4,6 +4,12 @@ object-assign
 @license MIT
 */
 
+/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+
 /*! http://mths.be/base64 v0.1.0 by @mathias | MIT license */
 
 /** @license React v0.18.0
