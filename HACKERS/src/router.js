@@ -3,19 +3,23 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Notfound from './notfound'
 import Intro from './intro'
 import GetStarted from './getStarted'
-// import Checkbox from'./checkbox';
+import Awnser from './awnser'
+import Post from './post'
 
 class Routes extends React.Component {
     render() {
         return (
+            <>
             <Router>
                 <Switch>
+                    <Route exact path="/post" component={Post} />
+                    <Route exact path="/posts/:postID" component={Awnser} />
+                    <Route exact path="/posts" component={GetStarted} />
                     <Route exact path="/" component={Intro} />
-                    <Route exact path="/getstarted" component={GetStarted} />
-                    {/* <Route exact path="/checkbox" component={Checkbox} /> */}
                     <Route component={Notfound} />
                 </Switch>
             </Router>
+            </>
         )
     }
 }

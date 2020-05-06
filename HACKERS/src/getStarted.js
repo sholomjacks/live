@@ -1,7 +1,7 @@
 import React from 'react';
 import Url from './url'
 import './table.css'
-import './typewriter.css'
+import { Button } from 'primereact/button'
 const axios = require('axios')
 
 class getStarted extends React.Component {
@@ -10,7 +10,14 @@ class getStarted extends React.Component {
         typing: true,
         logged_in: false,
         validating: true,
-        table: ""
+        table: "",      
+        profiePic: "",
+        postID: 1234,
+        subject: "TEST"
+    }
+
+    go(href) {
+        window.location = href
     }
 
     componentDidMount = async () => {
@@ -20,12 +27,15 @@ class getStarted extends React.Component {
 
             const table = await axios.post(`${Url}/table`, { token: localStorage.getItem("token") })
 
+            const profilePic = await axios.post(`${Url}/getProfile`, { token: localStorage.getItem("token") })
+
             this.setState({
-                welcomeMessage1: `Hello ${usernamea.data.username} and welcome to PADAH - Hackers! `,
-                welcomeMessage2: "Here you will learn how to get started with PADAH - HACKERS!",
+                welcomeMessage1: `Hello ${usernamea.data.username} and welcome to the posts page!`,
+                welcomeMessage2: null,
                 logged_in: true,
                 validating: false,
-                table: table.data
+                table: table.data,
+                profilePic: profilePic.data
             })
 
         } else {
@@ -44,9 +54,9 @@ class getStarted extends React.Component {
                         <div class="loader"></div>
                     </div>
                     : !this.state.logged_in ?
-                        <>
+                        <center style={{ backgroundColor: "lightgreen" }}>
                             NOT LOGGED IN
-                        </>
+                        </center>
                         :
                         this.state.welcomeMessage && this.state.logged_in ?
 
@@ -67,13 +77,21 @@ class getStarted extends React.Component {
                                         <tr>
                                             <th>Name</th>
                                             <th>Online</th>
+                                            <th>Signed In</th>
                                             <th>Profile Picture</th>
+                                            <th>Awnser</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {this.state.table.message.map((x) => {
                                             if (x === this.state.table.username) {
-                                                return <tr><td>{`${x} (You)`}</td><td>Yes</td></tr>
+                                                return <tr>
+                                                    <td>{`${x} (You)`}</td>
+                                                    <td>Yes</td>
+                                                    <td>Yes</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    </tr>
                                             } else {
                                                 return <tr><td>{x}</td></tr>
                                             }
@@ -92,18 +110,27 @@ class getStarted extends React.Component {
                                     <br />
                                     <br />
 
+                                    <Button label="Post" onClick={() => this.go("/post")} />
+
                                     <table style={{ width: "100%" }}>
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Online</th>
+                                                <th>User Name</th>
+                                                <th>Post ID</th>
+                                                <th>Subject</th>
                                                 <th>Profile Picture</th>
+                                                <th>Awnser</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {this.state.table.message.map((x) => {
                                                 if (x === this.state.table.username) {
-                                                    return <tr><td>{`${x} (You)`}</td><td>Yes</td></tr>
+                                                    return <tr>
+                                                        <td>{`${x} (You)`}</td>
+                                                        <td>{this.state.postID}</td>
+                                                        <td>{this.state.subject}</td>
+                                                        <td><img src={this.state.profilePic.url} width="100px" alt="Profile" /></td>
+                                                        <td><Button onClick={() => window.location = `/posts/${this.state.postID}`} label="Awnser" className="p-button-raised p-button-secondary" /></td></tr>
                                                 } else {
                                                     return <tr><td>{x}</td></tr>
                                                 }

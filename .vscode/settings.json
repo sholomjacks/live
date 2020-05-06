@@ -1,4 +1,7 @@
 {
     "git.ignoreLimitWarning": true,
-    "debug.node.autoAttach": "on"
+    "debug.node.autoAttach": "on",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
 }

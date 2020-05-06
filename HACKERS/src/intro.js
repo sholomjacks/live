@@ -66,9 +66,9 @@ class Intro extends Component {
                         <div class="loader"></div>
                     </div>
                     : !this.state.logged_in ?
-                        <>
+                        <center style={{ backgroundColor: "lightgreen" }} >
                             NOT LOGGED IN
-                        </>
+                        </center>
                         : this.state.welcomeMessage && this.state.logged_in ?
                             <center style={{ backgroundColor: "lightgreen" }} >
                                 <div className="typewriter">
