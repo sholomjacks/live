@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Editor} from 'primereact/editor';
 import {Button} from 'primereact/button'
 import Url from './url'
 const axios = require('axios')
@@ -12,7 +11,7 @@ class Post extends Component {
     }
 
     postQ = async () => {
-        const postSuccess = await axios.post(`${Url}/postQ`, { token: localStorage.getItem("token"), html: this.state.text, subject: this.state.subject })
+        const postSuccess = await axios.post(`${Url}/postQ`, { token: localStorage.getItem("token"), code: this.state.text, subject: this.state.subject })
         console.log(postSuccess)
         if (postSuccess.data.message === true) {
             alert("Sucess!")
@@ -36,7 +35,10 @@ class Post extends Component {
                 <br />
                 <br />
 
-                <Editor style={{height:'320px'}} value={this.state.text} onTextChange={(e) => this.setState({text: e.htmlValue})} />
+                <textarea placeholder="code" cols="40" style={{ height: '320px' }} value={this.state.text} onChange={(e) => this.setState({text: e.target.value})} />
+
+                <br/>
+                <br/>
 
                 <Button label="Post" onClick={this.postQ} />
             </center>

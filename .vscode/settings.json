@@ -3,5 +3,6 @@
     "debug.node.autoAttach": "on",
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
-    }
+    },
+    "emmet.triggerExpansionOnTab": true
 }
