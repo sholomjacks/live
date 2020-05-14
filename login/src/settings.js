@@ -107,6 +107,7 @@ class Settings extends React.Component {
                     })
                     var modal = document.getElementById("myModal");
                     modal.style.display = "none";
+                    this.setState({ submitting: false })
                 } else {
                     alert("Invalid password")
                 }
