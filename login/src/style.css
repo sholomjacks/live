@@ -118,8 +118,8 @@
 }
 
 #mystyledbutton:hover, #mystyledbutton:focus {
-    background-color: white;
-    color: #333333;
+    background-color: blue;
+    color: red;
     outline: 0;
 }
 
