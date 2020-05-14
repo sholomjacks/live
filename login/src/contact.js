@@ -37,7 +37,7 @@ class Contact extends Component {
                     <a href="/home">Home</a>
                     <a href="/contact">Contact</a>
                 </span>
-                <img alt="Hamburger Menu" id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
+                <img alt="Hamburger Menu" style={{ backgroundColor: "white" }} id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
 
                 <span id="main">
                     <center>

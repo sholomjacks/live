@@ -47,7 +47,7 @@ class cmds extends React.Component {
                     <a href="/contact">Contact</a>
                 </div>
 
-                <img alt="Hamburger Menu" id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
+                <img alt="Hamburger Menu" style={{ backgroundColor: "white" }} id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
 
                 <div id="main">
                     <center>

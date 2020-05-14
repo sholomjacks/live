@@ -60,6 +60,14 @@ class Admin extends React.Component {
         view: 'password'
     }
 
+    componentDidMount = async () => {
+        const isAdmin = await axios.post(`${url}/api/isAdmin`, { token: localStorage.getItem("token") })
+
+        this.setState({
+            isAdmin: isAdmin
+        })
+    }
+
     runcmd = (e) => {
         if (e === 'Add Account') {
             this.setState({ addAccount: true })

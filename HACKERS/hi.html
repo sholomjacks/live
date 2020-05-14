@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea type="text" id="jaja"></textarea>
+
+    <textarea id="hi"></textarea>
+
+    <button onclick="submit()">Submit</button>
+
+    <script>
+        const submit = async () => {
+            alert("Submitting...")
+            var response
+            const inputText = document.getElementById("jaja").value
+            alert(inputText)
+            const res = await fetch("http://localhost:4040/post", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    text: "IDK"
+                })
+            })
+                .then(res => res.json())
+                .then(res => response = res)
+            if (response.message === "OK") {
+                alert("Sucess")
+            } else {
+                alert("Failed")
+            }
+        }
+    </script>
+</body>
+
+</html>

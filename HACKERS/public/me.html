@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+        function randString(len) {
+            "use strict";
+               var i, out="", all ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                for (i = 0; i < len; i++) {
+                    out += all.charAt(Math.floor(Math.random()*all.length));
+                }
+            return out;
+        }
+        function main() {
+            "use strict";
+            var $_inter = setInterval(function() {
+                var text = document.getElementById("text");
+                text.innerHTML = randString(text.innerHTML.length);
+            }, 100);
+        }
+        window.onload = main;
+        </script>
+    </head>
+    <body>
+        <div id="text">Hello World!</div>
+    </body>
+</html>

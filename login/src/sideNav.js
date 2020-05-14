@@ -1,5 +1,21 @@
 import React, { Component } from 'react';
 
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+function logout() {
+    const logout = window.confirm("Are you sure you want to log out?")
+
+    if (logout) {
+        localStorage.setItem("token", null)
+        alert("You have successfully logged out of your padah account")
+        window.location = "/"
+    } else {
+        // do nothing
+    }
+}
+
 export class SideNav extends Component {
     render() {
         return (
