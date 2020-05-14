@@ -129,10 +129,10 @@ class Admin extends React.Component {
                     {// eslint-disable-next-line
                         <a onClick={logout}>Logout</a>}
                     <a href="/admin">Admin Commands</a>
-                    <a href="/games">Games</a>
-                    <a href="/settings">Settings</a>
-                    <a href="/home">Home</a>
-                    <a href="/contact">Contact</a>
+                    <a href="/Games">Games</a>
+                    <a href="/Settings">Settings</a>
+                    <a href="/Home">Home</a>
+                    <a href="/Contact">Contact</a>
                 </div>
 
                 <img alt="Hamburger Menu" id="cursur" style={{ backgroundColor: "white" }} src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
