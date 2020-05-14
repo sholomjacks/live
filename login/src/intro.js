@@ -1,19 +1,18 @@
 import React from 'react'
-import { Checkbox } from "primereact/checkbox";
 import './style.css'
 import './loader.css'
 import './checkbox.css'
 
 function checkbox() {
-    var x = document.getElementById("show-again")
-    console.log(x)
+    var x = document.getElementById("checkbox").checked
+
     if (x === true) {
         localStorage.setItem("intro", "no")
     } else {
         // do nothing
     }
 
-    //window.location = '/home'
+    window.location = '/home'
 }
 
 class top extends React.Component {
@@ -37,11 +36,12 @@ class top extends React.Component {
     render() {
         return (
             <> {this.state.render ? <center>
+                <video width="700px" src="https://ak02-video-cdn.slidely.com/promoVideos/videos/5e/b9/5eb9e76e861eda5c6316d3bc/preview.mp4?dv=1" autoPlay></video>
                 <h1>Hello!</h1> <br /> <h2>welcome to the secret world of PADAH (Professional Agency of Detectives And Hackers).
             <br /> Now you will be directed to your Home Page.
             <br /></h2>
 
-                <Checkbox id="show-again" tooltip="Don't show again" onChange={e => this.setState({checked: e.checked})} checked={this.state.checked}></Checkbox>
+                <input type="checkbox" id="checkbox" onChange={e => this.setState({checked: e.checked})} />
 
                 <br />
                 <br />

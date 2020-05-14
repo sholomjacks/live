@@ -18,6 +18,7 @@ ______|__|_______ FROM ####          ####   #######
 import React from 'react'
 import './style.css'
 import url from './url.js'
+import {SideNav} from './sideNav'
 const axios = require('axios')
 
 function go() {
@@ -47,6 +48,8 @@ function logout() {
 class Admin extends React.Component {
 
     state = {
+        admin: false,
+        rank: "",
         cmd: '',
         go: false,
         track: false,
@@ -54,7 +57,7 @@ class Admin extends React.Component {
         addAccount: false,
         usernamea: '',
         passworda: '',
-        view: 'password',
+        view: 'password'
     }
 
     runcmd = (e) => {
@@ -63,19 +66,19 @@ class Admin extends React.Component {
         }
     }
 
-
     AddAccount = async () => {
         alert('Adding account...')
         const response = await axios.post(
             `${url}/api/add-account`,
             {
                 username: this.state.usernamea,
-                password: this.state.passworda
+                password: this.state.passworda,
+                rank: this.state.rank
             },
             { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
         )
 
-        response.data.message === "exists" ? alert("Account already exists") : response.data.message ? alert("Account added successfully") : alert("You are not logged in to a PADAH account")
+        response.data.message === "exists" ? alert("Account already exists") : response.data.message ? alert("Account added successfully") : alert("You are not logged in to a PADAH account or you don't have the admin rank")
     }
 
     show = () => {
@@ -91,22 +94,19 @@ class Admin extends React.Component {
             return (
                 <>
 
-                    <div id="mySidenav" class="sidenav">
-                        {// eslint-disable-next-line
-                            <span id="cursur" href="javascript:void(0)" class="closebtn" onClick={closeNav}>&times;</span>}
-                        {// eslint-disable-next-line
-                            <a id="cursur" onClick={logout}>Logout</a>}
-                        <a href="/admin">Admin Commands</a>
-                        <a href="/games">Games</a>
-                        <a href="/settings">Settings</a>
-                        <a href="/home">Home</a>
-                        <a href="/contact">Contact</a>
-                    </div>
+                    <SideNav admin={this.state.admin} />
 
                     <img alt="Hamburger Menu" style={{ backgroundColor: "white" }} id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
 
                     <div id="main">
                         <center>
+                            <select id="mySelect" onChange={() => this.setState({ rank: document.getElementById("mySelect").value })}>
+                                <option value="Admin">Admin</option>
+                                <option value="P.A.D.A.H Member">P.A.D.A.H Member</option>
+                                <option value="Guest">Guest</option>
+                            </select>
+                            <br />
+                            <br />
                             <input placeholder="Username" type="text" id="high" required value={this.state.usernamea} onChange={(e) => this.setState({ usernamea: e.target.value })} />
                             <br />
                             <br />

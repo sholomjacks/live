@@ -1,1 +1,1 @@
-export default /*"https://pure-garden-36017.herokuapp.com"*/ "http://localhost:4040"
+export default /*"https://pure-garden-36017.herokuapp.com"*/"http://localhost:4040"
