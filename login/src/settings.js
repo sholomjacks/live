@@ -1,3 +1,14 @@
+/*     __
+______|__|_______ FROM ####          ####   #######
+|     AWARD      |     ##  #         # ##   ##
+|      FOR       |     ##   #       #  ##   ##
+| LONGEST FILE   |     ##    #     #   ##   #######
+\                /     ##     #   #    ##   ##
+ \_____________ /      ##      # #     ##   ##
+                       ##       #      ##   #######
+*/
+
+
 import React from 'react'
 import url from './url.js'
 const axios = require('axios')
@@ -59,7 +70,25 @@ class Settings extends React.Component {
         currentPw: '',
         newPassword: '',
         newPasswordConfirm: '',
-        submitting: false
+        submitting: false,
+        checked: false
+    }
+
+    componentDidMount() {
+        const intro = localStorage.getItem("intro") || ''
+
+        if(intro === "no") {
+            this.setState({ checked: true })
+        } else {
+            // do nothing
+        }
+    }
+
+    checkChange = (e) => {
+        const checked = document.getElementById("show-again").checked
+        this.setState({ checked: checked })
+        const isChecked = this.state.checked
+        !isChecked ? localStorage.setItem("intro", "no") : localStorage.setItem("intro", null)
     }
 
     changePw = async () => {
@@ -139,6 +168,9 @@ class Settings extends React.Component {
                             <br/>
                             <br/>
                         <button id="mystyledbutton" onClick={submitall}>Save</button> */}
+                        <h1>Preferences</h1>
+                        <label>Don't Show Intro</label>
+                        <input type="checkbox" id="show-again" title="Don't Show Intro" checked={this.state.checked} onChange={(e) => this.checkChange(e)} />
                     </center>
                 </div>
             </div>

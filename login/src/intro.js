@@ -36,11 +36,12 @@ class top extends React.Component {
     render() {
         return (
             <> {this.state.render ? <center>
-                {/* <video width="700px" src="https://ak02-video-cdn.slidely.com/promoVideos/videos/5e/b9/5eb9e76e861eda5c6316d3bc/preview.mp4?dv=1" autoPlay></video> */}
-                <h1>Hello!</h1> <br /> <h2>Welcome to the secret world of PADAH (Professional Agency of Detectives And Hackers).
-            <br /> Now you will be directed to your Home Page.
-            <br /></h2>
+                <video width="700px" src="https://padah.dev/intro_vid.mp4" autoPlay controls></video>
 
+                <br/>
+                <br/>
+
+                <label>Don't Show Again</label>
                 <input type="checkbox" id="checkbox" onChange={e => this.setState({checked: e.checked})} />
 
                 <br />
