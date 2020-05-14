@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Url from './url'
 import { Button } from 'primereact/button'
-import Axios from 'axios';
+
+const axios = require('axios')
 
 class Posts extends Component {
 
@@ -10,7 +11,7 @@ class Posts extends Component {
     }
 
     componentDidMount = async () => {
-        const good = await Axios.post(`${Url}/validateSub`, { subject: this.props.match.params.postSub })
+        const good = await axios.post(`${Url}/validateSub`, { subject: this.props.match.params.postSub })
 
         if (good.data.message) {
             this.setState({ isValid: true }) 

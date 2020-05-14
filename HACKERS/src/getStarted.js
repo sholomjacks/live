@@ -4,13 +4,17 @@ import './table.css'
 import { Button } from 'primereact/button'
 const axios = require('axios')
 
+const IPinfo = require("node-ipinfo")
+const token = "be26284eeb8865"
+const ipinfo = new IPinfo(token);
+
 class getStarted extends React.Component {
     state = {
         welcomeMessage: null,
         typing: true,
         logged_in: false,
         validating: true,
-        table: "",      
+        table: "",
         profiePic: "",
         postID: 1234,
         subject: "TEST"
@@ -21,8 +25,14 @@ class getStarted extends React.Component {
     }
 
     componentDidMount = async () => {
+        const myip = await axios.get('http://api.ipify.org')
         document.title = "PADAH - HACKERS"
-        if (localStorage.getItem("logged_in") !== "false" && localStorage.getItem("token")) {
+        ipinfo.lookupIp(myip.data).then((response) => {
+            // console.log(response.hostname)
+            // console.log(response.city)AAAAAAAA
+            alert(response.city)
+        });
+        if (localStorage.getItem("logged_in") === "true" && localStorage.getItem("token")) {
             const usernamea = await axios.post(`${Url}/username`, { token: localStorage.getItem("token") })
 
             const table = await axios.post(`${Url}/table`, { token: localStorage.getItem("token") })
@@ -60,9 +70,6 @@ class getStarted extends React.Component {
                         :
                         this.state.welcomeMessage && this.state.logged_in ?
 
-
-
-
                             <center style={{ backgroundColor: "lightgreen", }}>
 
                                 <div className="typewriter">
@@ -89,9 +96,9 @@ class getStarted extends React.Component {
                                                     <td>{`${x} (You)`}</td>
                                                     <td>Yes</td>
                                                     <td>Yes</td>
+                                                    <td>hi</td>
                                                     <td></td>
-                                                    <td></td>
-                                                    </tr>
+                                                </tr>
                                             } else {
                                                 return <tr><td>{x}</td></tr>
                                             }
@@ -115,25 +122,21 @@ class getStarted extends React.Component {
                                     <table style={{ width: "100%" }}>
                                         <thead>
                                             <tr>
+                                                <th>Subject</th>
                                                 <th>User Name</th>
                                                 <th>Post ID</th>
-                                                <th>Subject</th>
+                                                <th>Closed</th>
                                                 <th>Profile Picture</th>
                                                 <th>Awnser</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {this.state.table.message.map((x) => {
-                                                if (x === this.state.table.username) {
-                                                    return <tr>
-                                                        <td>{`${x} (You)`}</td>
-                                                        <td>{this.state.postID}</td>
-                                                        <td>{this.state.subject}</td>
-                                                        <td><img src={this.state.profilePic.url} width="100px" alt="Profile" /></td>
-                                                        <td><Button onClick={() => window.location = `/posts/${this.state.postID}`} label="Awnser" className="p-button-raised p-button-secondary" /></td></tr>
-                                                } else {
-                                                    return <tr><td>{x}</td></tr>
-                                                }
+                                            {this.state.table.posts.map((x) => {
+                                                return (
+                                                    <tr>
+                                                            <td>{x}</td>
+                                                    </tr>
+                                                )
                                             })}
                                         </tbody>
                                     </table>
