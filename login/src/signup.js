@@ -1,44 +1,49 @@
 import React, { Component } from 'react';
-import 'primereact/resources/themes/nova-light/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
+import { InputText } from 'primereact/inputtext'
 import { Button } from 'primereact/button'
-import { InputText } from 'primereact/inputtext';
 import Url from './url'
 const axios = require('axios')
 
-class Login extends Component {
+class Singup extends Component {
 
     state = {
         username: "",
         password: ""
     }
 
-    submitLogin = async () => {
+    signup = async () => {
+        console.log("Signing up")
         const body = {
-            username: this.state.value,
+            username: this.state.username,
             password: this.state.password
         }
-        const res = await axios.post(`${Url}/login-token-generator`, body)
+        const res = await axios.post(`${Url}/signup`, body)
         console.log(res)
-        localStorage.setItem("token", res.data.messages)
+        if (res.data.message === "exists") {
+            alert("Username Already Exists")
+        } else {
+            alert("Success!")
+            window.location = '/home'
+        }
     }
 
-    render() {
+    render() { 
         return (
             <center>
-                <h1>Login</h1>
+                <h1>Signup</h1>
                 <InputText id="in" value={this.state.value} placeholder="Username" onChange={(e) => this.setState({ username: e.target.value })} />
                 <br/>
                 <br/>
                 <InputText id="in" value={this.state.value} placeholder="Password" onChange={(e) => this.setState({ password: e.target.value })} />
                 <br/>
                 <br/>
-                <Button label="Submit" onClick={this.submitLogin} />
-                <h4>Don't yet have an account? Sign Up <a href="/signup">here</a></h4>
+                <Button label="Submit" onClick={this.signup} />
+                <br/>
+                <br/>
+                <h4>Already have an account? Sign In <a href="/">here</a></h4>
             </center>
         );
     }
 }
-
-export default Login;
+ 
+export default Singup;

@@ -1,5 +1,17 @@
-html {
-  background-image: url("https://lh3.googleusercontent.com/-E3Ox5R6nfjA/Xr2_kHfVu-I/AAAAAAAAAic/isI5k4lwuRg4zMSK52UYpO2mA3CloBwDwCK8BGAsYHg/s0/2020-05-14.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 1000%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
