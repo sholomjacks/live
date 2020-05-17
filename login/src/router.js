@@ -1,22 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './home'
-import './background.css'
-import NotFound from './notfound'
+import Login from './login'
 
-class Routers extends Component {
-    render() {
+class Routes extends Component {
+    render() { 
         return (
             <>
-                <Router>
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route component={NotFound} />
-                    </Switch>
-                </Router>
+                <Switch>
+                    <Route path="/" component={Login} />
+                </Switch>
             </>
         );
     }
 }
-
-export default Routers;
+ 
+export default Routes;
