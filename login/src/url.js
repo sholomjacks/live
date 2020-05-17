@@ -1,2 +1,9 @@
-export default "https://fathomless-ridge-21062.herokuapp.com" 
-// export default "http://localhost:4041"
+var url
+
+if (window.location.host !== "localhost:3001" && window.location.host !== "localhost:3000") {
+    url = "https://lab-padah.herokuapp.com"
+} else {
+    url = "http://localhost:4040"
+}
+
+export default url
