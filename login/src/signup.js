@@ -31,15 +31,13 @@ class Singup extends Component {
         return (
             <center>
                 <h1>Signup</h1>
-                <InputText id="in" value={this.state.value} placeholder="Username" onChange={(e) => this.setState({ username: e.target.value })} />
+                <InputText value={this.state.value} placeholder="Username" onChange={(e) => this.setState({ username: e.target.value })} />
                 <br/>
                 <br/>
-                <InputText id="in" value={this.state.value} placeholder="Password" onChange={(e) => this.setState({ password: e.target.value })} />
+                <InputText value={this.state.value} placeholder="Password" onChange={(e) => this.setState({ password: e.target.value })} />
                 <br/>
                 <br/>
                 <Button label="Submit" onClick={this.signup} />
-                <br/>
-                <br/>
                 <h4>Already have an account? Sign In <a href="/">here</a></h4>
             </center>
         );

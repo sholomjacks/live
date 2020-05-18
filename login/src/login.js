@@ -21,17 +21,17 @@ class Login extends Component {
         }
         const res = await axios.post(`${Url}/login-token-generator`, body)
         console.log(res)
-        localStorage.setItem("token", res.data.messages)
+        localStorage.setItem("token", res.data.message)
     }
 
     render() {
         return (
             <center>
                 <h1>Login</h1>
-                <InputText id="in" value={this.state.value} placeholder="Username" onChange={(e) => this.setState({ username: e.target.value })} />
+                <InputText value={this.state.value} placeholder="Username" onChange={(e) => this.setState({ username: e.target.value })} />
                 <br/>
                 <br/>
-                <InputText id="in" value={this.state.value} placeholder="Password" onChange={(e) => this.setState({ password: e.target.value })} />
+                <InputText value={this.state.value} placeholder="Password" onChange={(e) => this.setState({ password: e.target.value })} />
                 <br/>
                 <br/>
                 <Button label="Submit" onClick={this.submitLogin} />
