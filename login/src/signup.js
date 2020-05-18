@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { InputText } from 'primereact/inputtext'
 import { Button } from 'primereact/button'
 import Url from './url'
+import './background.css'
 const axios = require('axios')
 
 class Singup extends Component {
