@@ -5,9 +5,7 @@ class Setup extends Component {
         return (
             <center>
                 <h1>Setup</h1>
-                <input type="checkbox"/>
-            </center>
-        );
+                       );
     }
 }
  
