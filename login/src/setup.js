@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 class Setup extends Component {
     render() { 
         return (
-            <center>
-                <h1>Setup</h1>
-                <input type="checkbox"/>
+            <center>   
+            <h1>Setup</h1>
             </center>
-        );
+                
+                    );
     }
 }
 
