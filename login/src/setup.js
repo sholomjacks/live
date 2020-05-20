@@ -20,7 +20,7 @@ class Setup extends Component {
     state = {
         domainChecked: false,
         domain: "",
-        type: ""
+        type: "",
     }
 
     render() {
