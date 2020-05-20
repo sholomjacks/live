@@ -54,7 +54,7 @@ class cmds extends React.Component {
                         <h1 id="first">Commands:</h1>
                         <h2 id="firstl">
                             <br /><br />Add Account: Will ask for username and password wich will become a new account.
-                            <br /><br />*COMING SOON* DeleteAccount: Will ask for account name and then delete that account.
+                            <br /><br />*COMING SOON* Delete Account: Will ask for account name and then delete that account.
                             <br /><br />*COMING SOON* Track: Will ask for the persons username and then track what he is doing.
                         </h2>
                     </center>
