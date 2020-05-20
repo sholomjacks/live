@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Checkbox } from 'primereact/checkbox'
 import { InputText } from 'primereact/inputtext'
-import {Dropdown} from 'primereact/dropdown';
+import { Dropdown } from 'primereact/dropdown';
 
 const typeSelectItems = [
     { label: "Informational Websites" },
