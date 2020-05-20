@@ -41,6 +41,8 @@ class top extends React.Component {
             <br /> Now you will be directed to your Home Page.
             <br /></h2>
 
+                <video src="https://lab.padah.dev/intro_vid.mp4" autoPlay controls></video>
+
                 <Checkbox id="show-again" tooltip="Don't show again" onChange={e => this.setState({checked: e.checked})} checked={this.state.checked}></Checkbox>
 
                 <br />

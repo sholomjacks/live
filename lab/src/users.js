@@ -129,7 +129,6 @@ class Users extends React.Component {
                         <h1 id="al1" style={{ fontSize: "3rem", color: "white" }}>{this.state.welcomeMessage}</h1>
                         {/*<button id="mystyledbutton" onClick={show}>Show</button>*/}
                         <p id="lol"></p>
-                        <a id="labbutton" href={ window.location.host !== "localhost:3000" ? `https://lab.padah.dev/?token=${localStorage.getItem("token")}` : `http://localhost:3001/?token=${localStorage.getItem("token")}` }>Lab</a>
                     </center>
                 </span> </>: <div class="center">
                         <div class="loader"></div>
