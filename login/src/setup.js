@@ -17,9 +17,9 @@ const typeSelectItems = [
 ];
 
 const pageSelectItems = [
-    { label: "1" },
-    { label: "2" },
-    { label: "3" }
+    { label: "Log In" },
+    { label: "Sign Up" },
+    { label: "info" }
 ]
 
 class Setup extends Component {
