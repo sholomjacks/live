@@ -50,7 +50,7 @@ class Setup extends Component {
                 <br/>
                 <br/>
 
-                <h2>Choose the pages you would like on your website:</h2>
+                <h2>Choose what would like on your website:</h2>
 
                 <br/>
 
