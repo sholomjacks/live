@@ -12,8 +12,7 @@ const typeSelectItems = [
     { label: "Social Media and Networking Websites" },
     { label: "News Websites" },
     { label: "Online Community" },
-    { label: "Portfolio" },
-
+    { label: "Portfolio" }
 ];
 
 class Setup extends Component {
