@@ -5,15 +5,15 @@ import { Dropdown } from 'primereact/dropdown';
 import { MultiSelect } from 'primereact/multiselect';
 
 const typeSelectItems = [
-    { label: "Informational Websites" },
-    { label: "Brochure/Catalogue Style Websites" },
-    { label: "E-Commerce Websites" },
-    { label: "Blogs" },
-    { label: "Personal Websites" },
-    { label: "Social Media and Networking Websites" },
-    { label: "News Websites" },
-    { label: "Online Community" },
-    { label: "Portfolio" }
+    { label: "Informational Websites", value: "1" },
+    { label: "Brochure/Catalogue Style Websites", value: "2" },
+    { label: "E-Commerce Websites", value: "3" },
+    { label: "Blogs", value: "4" },
+    { label: "Personal Websites", value: "5" },
+    { label: "Social Media and Networking Websites", value: "6" },
+    { label: "News Websites", value: "7" },
+    { label: "Online Community", value: "8" },
+    { label: "Portfolio", value: "9" }
 ];
 
 const pageSelectItems = [
