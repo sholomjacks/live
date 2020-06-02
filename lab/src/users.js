@@ -1,4 +1,5 @@
 import React from 'react'
+import {Chart} from 'primereact/chart';
 import url from './url.js'
 const axios = require('axios')
 
@@ -107,6 +108,21 @@ class Users extends React.Component {
     }
 
     render() {
+        const data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+                {
+                    label: 'Sales',
+                    backgroundColor: '#42A5F5',
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                },
+                {
+                    label: 'My Second dataset',
+                    backgroundColor: '#9CCC65',
+                    data: [28, 48, 40, 19, 86, 27, 90]
+                }
+            ]
+        };
         return (
             <>
                 { this.state.welcomeMessage ? <><div id="mySidenav" class="sidenav">
@@ -116,7 +132,6 @@ class Users extends React.Component {
                     {// eslint-disable-next-line
                         <a id="cursur" onClick={logout}>Logout</a>}
                     <a href="/admin">Admin Commands</a>
-                     
                     <a href="/settings">Settings</a>
                     <a href="/home">Home</a>
                     <a href="/contact">Contact</a>
@@ -127,8 +142,8 @@ class Users extends React.Component {
                 <span id="main">
                     <center>
                         <h1 id="al1" style={{ fontSize: '3rem' }}>{this.state.welcomeMessage}</h1>
-                        {/*<button id="mystyledbutton" onClick={show}>Show</button>*/}
                         <p id="lol"></p>
+                        <Chart type="bar" data={data} />
                     </center>
                 </span> </>: <div class="center">
                         <div class="loader"></div>
