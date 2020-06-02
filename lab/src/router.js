@@ -9,7 +9,6 @@ import Signin from './SignIn'
 import Signup from './SignUp'
 import usernames from './usernames'
 import Users from './users'
-import games from './games'
 import Settings from './settings'
 import Contact from './contact'
 
@@ -27,7 +26,6 @@ class Routes extends React.Component {
                     <Route exact path="/admin/usernames" component={usernames} />
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/signup/confirmed" component={confirmed} />
-                    <Route exact path="/games" component={games} />
                     <Route exact path="/contact" component={Contact} />
                     <Route component={Notfound} />
                 </Switch>

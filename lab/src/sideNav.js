@@ -25,7 +25,7 @@ export class SideNav extends Component {
                 {// eslint-disable-next-line
                     <a id="cursur" onClick={logout}>Logout</a>}
                 {this.props.admin ? <a href="/admin">Admin Commands</a> : null}
-                <a href="/games">Games</a>
+                 
                 <a href="/settings">Settings</a>
                 <a href="/home">Home</a>
                 <a href="/contact">Contact</a>

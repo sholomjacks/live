@@ -116,17 +116,17 @@ class Users extends React.Component {
                     {// eslint-disable-next-line
                         <a id="cursur" onClick={logout}>Logout</a>}
                     <a href="/admin">Admin Commands</a>
-                    <a href="/games">Games</a>
+                     
                     <a href="/settings">Settings</a>
                     <a href="/home">Home</a>
                     <a href="/contact">Contact</a>
                 </div>
 
-                <img alt="Hamburger Menu" id="cursur" style={{ backgroundColor: "white" }} src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
+                <img alt="Hamburger Menu" id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
 
                 <span id="main">
                     <center>
-                        <h1 id="al1" style={{ fontSize: "3rem", color: "white" }}>{this.state.welcomeMessage}</h1>
+                        <h1 id="al1" style={{ fontSize: '3rem' }}>{this.state.welcomeMessage}</h1>
                         {/*<button id="mystyledbutton" onClick={show}>Show</button>*/}
                         <p id="lol"></p>
                     </center>

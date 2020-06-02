@@ -41,13 +41,13 @@ class cmds extends React.Component {
                     {// eslint-disable-next-line
                         <a id="cursur" onClick={logout}>Logout</a>}
                     <a href="/admin">Admin Commands</a>
-                    <a href="/games">Games</a>
+                     
                     <a href="/settings">Settings</a>
                     <a href="/home">Home</a>
                     <a href="/contact">Contact</a>
                 </div>
 
-                <img alt="Hamburger Menu" style={{ backgroundColor: "white" }} id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
+                <img alt="Hamburger Menu" id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
 
                 <div id="main">
                     <center>

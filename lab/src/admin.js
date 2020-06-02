@@ -97,7 +97,7 @@ class Admin extends React.Component {
 
                     <SideNav admin={this.state.admin} />
 
-                    <img alt="Hamburger Menu" style={{ backgroundColor: "white" }} id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
+                    <img alt="Hamburger Menu" id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
 
                     <div id="main">
                         <center>
@@ -128,15 +128,15 @@ class Admin extends React.Component {
                     {// eslint-disable-next-line
                         <span id="cursur" href="javascript:void(0)" class="closebtn" onClick={closeNav}>&times;</span>}
                     {// eslint-disable-next-line
-                        <a onClick={logout}>Logout</a>}
+                        <a id='cursur' onClick={logout}>Logout</a>}
                     <a href="/admin">Admin Commands</a>
-                    <a href="/Games">Games</a>
+                     
                     <a href="/Settings">Settings</a>
                     <a href="/Home">Home</a>
                     <a href="/Contact">Contact</a>
                 </div>
 
-                <img alt="Hamburger Menu" id="cursur" style={{ backgroundColor: "white" }} src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
+                <img alt="Hamburger Menu" id="cursur" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" onClick={openNav} />
 
                 <div id="main">
                     <center>

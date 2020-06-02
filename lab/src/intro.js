@@ -4,18 +4,6 @@ import './style.css'
 import './loader.css'
 import './checkbox.css'
 
-function checkbox() {
-    var x = document.getElementById("show-again")
-    console.log(x)
-    if (x === true) {
-        localStorage.setItem("intro", "no")
-    } else {
-        // do nothing
-    }
-
-    //window.location = '/home'
-}
-
 class top extends React.Component {
 
     state = {
@@ -34,6 +22,17 @@ class top extends React.Component {
         }
     }
 
+    checkbox = () => {
+        var x = this.state.checked
+        if (x === true) {
+            localStorage.setItem("intro", "no")
+        } else {
+            // do nothing
+        }
+    
+        window.location = '/home'
+    }
+
     render() {
         return (
             <> {this.state.render ? <center>
@@ -43,13 +42,16 @@ class top extends React.Component {
 
                 <video src="https://lab.padah.dev/intro_vid.mp4" autoPlay controls></video>
 
+                <br/>
+                <br/>
+
                 <Checkbox id="show-again" tooltip="Don't show again" onChange={e => this.setState({checked: e.checked})} checked={this.state.checked}></Checkbox>
 
                 <br />
                 <br />
 
                 <section className="button">
-                    <button id="mystyledbutton" onClick={checkbox}>Go To Home</button>
+                    <button id="mystyledbutton" onClick={this.checkbox}>Go To Home</button>
                 </section>
             </center> : <div class="center">
                     <div class="loader"></div>
