@@ -1,6 +1,7 @@
 import React from 'react'
 import {Chart} from 'primereact/chart';
 import url from './url.js'
+import './tab.css'
 const axios = require('axios')
 
 /* Set the width of the side navigation to 250px */
@@ -99,12 +100,14 @@ function logout() {
 class Users extends React.Component {
 
     componentDidMount = async () => {
-        const usernamee = await axios.post(`${url}/api/username`, { token: localStorage.getItem("token") })
-        this.setState({ welcomeMessage: `Welcome, ${usernamee.data.username}!` })
+        const chartData = await axios.post(`${url}/api/chartData`, { token: localStorage.getItem("token") } )
+        const username = await axios.post(`${url}/api/username`, { token: localStorage.getItem("token") })
+        this.setState({ welcomeMessage: `Welcome, ${username.data.username}!`, chartData: chartData.data.message })
     }
 
     state = {
-        welcomeMessage: null
+        welcomeMessage: null,
+        chartData: null
     }
 
     render() {
@@ -112,20 +115,20 @@ class Users extends React.Component {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
                 {
-                    label: 'Sales',
+                    label: 'All Of PADAH\'s Sales',
                     backgroundColor: '#42A5F5',
-                    data: [65, 59, 80, 81, 56, 55, 40]
+                    data: this.state.chartData
                 },
                 {
-                    label: 'My Second dataset',
+                    label: 'Sales You Took Part Of',
                     backgroundColor: '#9CCC65',
-                    data: [28, 48, 40, 19, 86, 27, 90]
+                    data: [1, 0, 0, 0, 0, 0, 0]
                 }
             ]
         };
         return (
             <>
-                { this.state.welcomeMessage ? <><div id="mySidenav" class="sidenav">
+                { this.state.welcomeMessage && this.state.chartData ? <><div id="mySidenav" class="sidenav">
                     {// eslint-disable-next-line
                         <span id="cursur" href="javascript:void(0)" class="closebtn" onClick={closeNav}>&times;</span>}
                     <img style={{ borderRadius: "50%", marginLeft: "50px", display: "block" }} width="110px" src="https://hackernoon.com/hn-images/1*TYAzzTJ60x-qg5N81ElU9A.png" alt="profile" />
@@ -143,7 +146,29 @@ class Users extends React.Component {
                     <center>
                         <h1 id="al1" style={{ fontSize: '3rem' }}>{this.state.welcomeMessage}</h1>
                         <p id="lol"></p>
-                        <Chart type="bar" data={data} />
+                        {this.state.chartData !== "null" ? 
+                            <div class="warpper">
+                              <input class="radio" id="one" name="group" type="radio" checked/>
+                              <input class="radio" id="two" name="group" type="radio"/>
+                              <input class="radio" id="three" name="group" type="radio"/>
+                              <div class="tabs">
+                              <label class="tab" id="one-tab" for="one">Sales You Took Part Of</label>
+                              <label class="tab" id="two-tab" for="two">All Of PADAH's Sales</label>
+                                </div>
+                              <div class="panels">
+                              <div class="panel" id="one-panel">
+                              <Chart type="bar" data={data} /> 
+                              </div>
+                              <div class="panel" id="two-panel">
+                              </div>
+                              </div>
+                            </div>
+                            
+                            // 
+                            
+                            :
+                            
+                            <h1>No Sales Yet!</h1>}
                     </center>
                 </span> </>: <div class="center">
                         <div class="loader"></div>
