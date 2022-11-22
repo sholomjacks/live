@@ -30,7 +30,7 @@
     "react-dom": "^16.12.0",
     "react-qr-reader": "^2.2.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.1",
+    "react-scripts": "5.0.1",
     "react-transition-group": "^4.3.0",
     "redibase": "^1.0.21",
     "simple-peer": "^9.6.2"
